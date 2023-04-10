@@ -14,10 +14,9 @@ class HomeScreenBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12.0),
       child: SingleChildScrollView(
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const buildAppBar(),
+            const BuildHomeAppBar(),
             const HorizontalList(),
             SizedBox(
               height: MedQur.getHeight(context) * 0.02,

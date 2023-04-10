@@ -1,8 +1,11 @@
 import 'package:booky_app/constant.dart';
 import 'package:booky_app/feature/howe/presentation/veiws/home_sceen.dart';
+import 'package:booky_app/feature/search/presentation/views/search_screen.dart';
 import 'package:booky_app/feature/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'feature/howe/presentation/veiws/book_detail_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +27,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashView(),
         HomeScreen.routeName: (context) => const HomeScreen(),
+        BookDetailScreen.routeName: (context) => const BookDetailScreen(),
+        SearchScreen.routeName: (context) => const SearchScreen(),
       },
     );
   }

@@ -1,6 +1,8 @@
 import 'package:booky_app/constant.dart';
 import 'package:booky_app/core/utils/assets_info.dart';
+import 'package:booky_app/feature/howe/presentation/veiws/widgets/build%20_review_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class VerticalCard extends StatelessWidget {
   const VerticalCard({Key? key}) : super(key: key);
@@ -58,27 +60,7 @@ class VerticalCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.star,
-                          color: Colors.amberAccent,
-                        ),
-                        const SizedBox(
-                          width: 5.0,
-                        ),
-                        Text(
-                          '4.8',
-                          textAlign: TextAlign.start,
-                          style: bodyRating,
-                        ),
-                        Text(
-                          '(2332)',
-                          textAlign: TextAlign.start,
-                          style: bodyRating.copyWith(color: Colors.grey),
-                        ),
-                      ],
-                    )
+                    const ReviewBar()
                   ],
                 )
               ],

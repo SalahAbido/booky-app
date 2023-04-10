@@ -27,11 +27,6 @@ class _SplashBodyState extends State<SplashBody>
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        /*Get.to(
-          () => const HomeScreen(),
-          transition: Transition.fadeIn,
-        );*/
-
         Navigator.pushNamed(context, HomeScreen.routeName);
       },
     );
@@ -60,7 +55,7 @@ class _SplashBodyState extends State<SplashBody>
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(AssetInfo.logo, width: MedQur.getWidth(context)* 0.5),
+          Image.asset(AssetInfo.logo, width: MedQur.getWidth(context) * 0.5),
           SlidingText(slideAnimation: slideAnimation)
         ],
       ),

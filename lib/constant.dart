@@ -8,13 +8,9 @@ TextStyle bodyLargeTitle =
 TextStyle bodyMediumTitle =
     const TextStyle(fontSize: 15.0, fontWeight: FontWeight.normal);
 TextStyle bodyRating =
-    const TextStyle(fontWeight: FontWeight.normal,fontSize: 15);
+    const TextStyle(fontWeight: FontWeight.normal, fontSize: 15);
 
 class MedQur {
-  /*static Size size(BuildContext context) {
-    return MediaQuery.of(context).size;
-  }*/
-
   static double getWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;
   }

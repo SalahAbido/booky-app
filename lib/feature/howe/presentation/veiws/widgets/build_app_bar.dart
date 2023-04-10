@@ -1,9 +1,10 @@
 import 'package:booky_app/core/utils/assets_info.dart';
+import 'package:booky_app/feature/search/presentation/views/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class buildAppBar extends StatelessWidget {
-  const buildAppBar({Key? key}) : super(key: key);
+class BuildHomeAppBar extends StatelessWidget {
+  const BuildHomeAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +17,12 @@ class buildAppBar extends StatelessWidget {
             AssetInfo.logo,
             width: 50.0,
           ),
+          // const Spacer(),
           IconButton(
             icon: const Icon(FontAwesomeIcons.magnifyingGlass),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, SearchScreen.routeName);
+            },
           )
         ],
       ),

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class BookDetailScreen extends StatelessWidget {
   const BookDetailScreen({Key? key}) : super(key: key);
-
+static const String routeName='/bookDetailScreen';
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body:BookDetailScreenBody() ,
+      body:SafeArea(child: BookDetailScreenBody()) ,
     );
   }
 }
