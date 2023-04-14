@@ -15,7 +15,7 @@ class SimilarList extends StatelessWidget {
         itemBuilder: (context, index) => InkWell(
           borderRadius: BorderRadius.circular(25.0),
           onTap: () {},
-          child: const HorizontalCard(),
+          child: const HorizontalCard(imageUrl: 'BL777'),
         ),
         itemCount: 5,
       ),

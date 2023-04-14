@@ -1,5 +1,9 @@
+import 'package:booky_app/core/widgets/custom%20_error_widget.dart';
+import 'package:booky_app/core/widgets/loading_widget.dart';
 import 'package:booky_app/feature/howe/presentation/veiws/widgets/build_horizontal_card.dart';
+import 'package:booky_app/feature/howe/presentation/view_model/horizontal_list_cubit/horizontal_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../constant.dart';
 import '../book_detail_screen.dart';
@@ -9,19 +13,28 @@ class HorizontalList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      // width: MedQur.getHeight(context)*0.95,
-      height: MedQur.getHeight(context) * 0.3,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => InkWell(
-            borderRadius: BorderRadius.circular(25.0),
-            onTap: () {
-              Navigator.pushNamed(context, BookDetailScreen.routeName);
-            },
-            child: const HorizontalCard()),
-        itemCount: 3,
-      ),
+    return BlocBuilder<HorizontalCubit, HorizontalState>(
+      builder: (context, state) {
+        if (state is HorizontalSuccess) {
+          return SizedBox(
+            height: MedQur.getHeight(context) * 0.3,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => InkWell(
+                  borderRadius: BorderRadius.circular(25.0),
+                  onTap: () {
+                    Navigator.pushNamed(context, BookDetailScreen.routeName);
+                  },
+                  child:  HorizontalCard(imageUrl: state.books[index].volumeInfo?.imageLinks?.thumbnail,)),
+              itemCount: state.books.length,
+            ),
+          );
+        } else if (state is HorizontalFailure) {
+          return CustomErrorWidget(errorMessage: state.errorMessage);
+        } else {
+          return const LoadingWidget();
+        }
+      },
     );
   }
 }

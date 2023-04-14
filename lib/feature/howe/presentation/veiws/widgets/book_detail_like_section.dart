@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../constant.dart';
-import 'build_horizontal_card.dart';
 
 class BookDetailLikeSection extends StatelessWidget {
   const BookDetailLikeSection({Key? key}) : super(key: key);

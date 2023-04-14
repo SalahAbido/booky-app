@@ -22,13 +22,13 @@ class HomeScreenBody extends StatelessWidget {
               height: MedQur.getHeight(context) * 0.02,
             ),
             Text(
-              'Best Seller ',
+              'Newest Books',
               style: bodyLargeTitle,
             ),
             SizedBox(
               height: MedQur.getHeight(context) * 0.02,
             ),
-            const VerticalList()
+            const VerticalList(),
           ],
         ),
       ),

@@ -36,7 +36,10 @@ class SearchScreenBody extends StatelessWidget {
           const SizedBox(
             height: 20.0,
           ),
-           Text('Search Result',style: bodyLargeTitle,),
+          Text(
+            'Search Result',
+            style: bodyLargeTitle,
+          ),
           const SizedBox(
             height: 20.0,
           ),

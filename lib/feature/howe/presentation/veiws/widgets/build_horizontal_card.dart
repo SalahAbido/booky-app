@@ -1,9 +1,12 @@
 import 'package:booky_app/core/utils/assets_info.dart';
-import 'package:booky_app/feature/howe/presentation/veiws/book_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalCard extends StatelessWidget {
-  const HorizontalCard({Key? key}) : super(key: key);
+  const HorizontalCard({
+    Key? key,
+    this.imageUrl,
+  }) : super(key: key);
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -11,17 +14,18 @@ class HorizontalCard extends StatelessWidget {
       aspectRatio: 2.7 / 4,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8.0),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             color: Colors.lightBlueAccent,
-            borderRadius: BorderRadius.all(Radius.circular(25.0)),
-            image: DecorationImage(
-                fit: BoxFit.cover, image: AssetImage(AssetInfo.testImage))),
-        /*child: InkWell(
-          customBorder: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25.0),
-          ),
-          onTap: () {},
-        ),*/
+            borderRadius: const BorderRadius.all(Radius.circular(25.0)),
+            image: imageUrl == null
+                ? const DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(AssetInfo.testImage),
+                  )
+                : DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(imageUrl!),
+                  )),
       ),
     );
   }

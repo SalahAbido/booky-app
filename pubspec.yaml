@@ -37,6 +37,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^10.4.0
   google_fonts: ^4.0.3
+  dartz: ^0.10.1
+  dio: ^5.1.1
+  flutter_bloc: ^8.1.2
+  get_it: any
+  fluttertoast: ^8.2.1
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

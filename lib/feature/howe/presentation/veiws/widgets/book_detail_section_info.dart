@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../constant.dart';
 import '../../../../../core/widgets/button.dart';
-import 'book_detail_appbar.dart';
 import 'build _review_bar.dart';
 import 'build_horizontal_card.dart';
 

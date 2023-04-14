@@ -2,7 +2,6 @@ import 'package:booky_app/constant.dart';
 import 'package:booky_app/core/utils/assets_info.dart';
 import 'package:booky_app/feature/howe/presentation/veiws/widgets/build%20_review_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class VerticalCard extends StatelessWidget {
   const VerticalCard({Key? key}) : super(key: key);
@@ -10,7 +9,6 @@ class VerticalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // margin: const EdgeInsets.symmetric(vertical: 15.0),
       padding: const EdgeInsets.only(right: 15.0),
       child: Row(
         children: [

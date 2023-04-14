@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:booky_app/feature/howe/presentation/veiws/widgets/home_screen_body.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: HomeScreenBody(),
+      body: const HomeScreenBody(),
       floatingActionButton: Container(
         padding: const EdgeInsets.all(8),
         decoration:  BoxDecoration(
@@ -18,7 +17,7 @@ class HomeScreen extends StatelessWidget {
           color: Colors.white.withOpacity(0.3).withBlue(50)
         ),
         width: 200.0,
-        child: Text('data'),
+        child: const Text('data'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
