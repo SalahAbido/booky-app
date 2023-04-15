@@ -1,5 +1,8 @@
-import 'package:booky_app/core/utils/assets_info.dart';
+import 'package:booky_app/core/widgets/loading_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../constant.dart';
 
 class HorizontalCard extends StatelessWidget {
   const HorizontalCard({
@@ -10,22 +13,29 @@ class HorizontalCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.7 / 4,
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 8.0),
-        decoration: BoxDecoration(
-            color: Colors.lightBlueAccent,
-            borderRadius: const BorderRadius.all(Radius.circular(25.0)),
-            image: imageUrl == null
-                ? const DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(AssetInfo.testImage),
-                  )
-                : DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(imageUrl!),
-                  )),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16.0),
+        child: AspectRatio(
+          aspectRatio: 2.7 / 4,
+          child: CachedNetworkImage(
+            imageUrl: imageUrl ?? ' ' ,
+            fit: BoxFit.fill,
+            errorWidget: (context, url, error) => Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  textAlign: TextAlign.center,
+                  'There are a problem in this image',
+                  style: bodyRating,
+                ),
+                const Icon(Icons.error_outline_rounded)
+              ],
+            ),
+            placeholder: (context, url) => const LoadingWidget(),
+          ),
+        ),
       ),
     );
   }

@@ -11,6 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'feature/howe/presentation/veiws/book_detail_screen.dart';
+import 'feature/howe/presentation/view_model/like_list_cubit/like__cubit.dart';
 
 void main() {
   setupServiceLocator();
@@ -44,7 +45,11 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const SplashView(),
           HomeScreen.routeName: (context) => const HomeScreen(),
-          BookDetailScreen.routeName: (context) => const BookDetailScreen(),
+          BookDetailScreen.routeName: (context) => BlocProvider(
+                create: (BuildContext context) =>
+                    LikeCubit(getIt.get<HomeRepoImpl>())..fetchLikedBooks(),
+                child:  BookDetailScreen(),
+              ),
           SearchScreen.routeName: (context) => const SearchScreen(),
         },
       ),

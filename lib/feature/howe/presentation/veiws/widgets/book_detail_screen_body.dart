@@ -4,10 +4,12 @@ import 'package:booky_app/feature/howe/presentation/veiws/widgets/book_detail_li
 import 'package:booky_app/feature/howe/presentation/veiws/widgets/book_detail_section_info.dart';
 import 'package:flutter/material.dart';
 
+import '../../../data/models/Book.dart';
+
 
 class BookDetailScreenBody extends StatelessWidget {
-  const BookDetailScreenBody({Key? key}) : super(key: key);
-
+  const BookDetailScreenBody({Key? key, required this.book}) : super(key: key);
+final Book book;
   @override
   Widget build(BuildContext context) {
     return Container(

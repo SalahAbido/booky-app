@@ -32,7 +32,7 @@ class BookDetailInfoSection extends StatelessWidget {
                 fontSize: 18, fontStyle: FontStyle.italic),
           ),
         ),
-        const ReviewBar(),
+         const ReviewBar(count: 300,rating:3 ),
         const SizedBox(
           height: 50.0,
         ),
