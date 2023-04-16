@@ -43,6 +43,7 @@ dependencies:
   get_it: any
   fluttertoast: ^8.2.1
   cached_network_image: ^3.2.3
+  url_launcher: ^6.1.10
 
 
 dev_dependencies:

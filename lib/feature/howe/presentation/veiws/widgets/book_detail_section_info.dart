@@ -1,4 +1,6 @@
+import 'package:booky_app/feature/howe/data/models/Book.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../constant.dart';
 import '../../../../../core/widgets/button.dart';
@@ -6,7 +8,8 @@ import 'build _review_bar.dart';
 import 'build_horizontal_card.dart';
 
 class BookDetailInfoSection extends StatelessWidget {
-  const BookDetailInfoSection({Key? key}) : super(key: key);
+  const BookDetailInfoSection({Key? key, required this.book}) : super(key: key);
+  final Book book;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +21,15 @@ class BookDetailInfoSection extends StatelessWidget {
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: MedQur.getWidth(context) * 0.17),
-          child: const HorizontalCard(),
+          child: HorizontalCard(
+              imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? ' '),
         ),
         Text(
-          'The Jungle book ',
+          book.volumeInfo?.title ?? 'unknown',
           style: bodyLargeTitle.copyWith(fontSize: 30.0),
+          textAlign: TextAlign.center,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
         ),
         Opacity(
           opacity: 0.5,
@@ -32,26 +39,33 @@ class BookDetailInfoSection extends StatelessWidget {
                 fontSize: 18, fontStyle: FontStyle.italic),
           ),
         ),
-         const ReviewBar(count: 300,rating:3 ),
+        const ReviewBar(count: 300, rating: 3),
         const SizedBox(
           height: 50.0,
         ),
         Row(
-          children: const [
+          children: [
             ExpandedButton(
-              text: '19.99',
+              onPress: () {},
+              text: 'Free',
               color: Colors.black,
               backgroundColor: Colors.white,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(15.0),
                 bottomLeft: Radius.circular(15.0),
               ),
             ),
             ExpandedButton(
-              text: '19.99',
+              onPress: () async {
+                Uri  url=Uri.parse('https://github.com/SalahAbido');
+                if (await canLaunchUrl(url)) {
+                 await launchUrl(url);
+                }
+              },
+              text: 'Pre View',
               color: Colors.white,
               backgroundColor: Colors.orange,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(15.0),
                 bottomRight: Radius.circular(15.0),
               ),

@@ -1,4 +1,3 @@
-import 'package:booky_app/core/widgets/loading_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +19,7 @@ class HorizontalCard extends StatelessWidget {
         child: AspectRatio(
           aspectRatio: 2.7 / 4,
           child: CachedNetworkImage(
-            imageUrl: imageUrl ?? ' ' ,
+            imageUrl: imageUrl ?? ' ',
             fit: BoxFit.fill,
             errorWidget: (context, url, error) => Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -33,7 +32,7 @@ class HorizontalCard extends StatelessWidget {
                 const Icon(Icons.error_outline_rounded)
               ],
             ),
-            placeholder: (context, url) => const LoadingWidget(),
+            // placeholder: (context, url) => const LoadingWidget(),
           ),
         ),
       ),

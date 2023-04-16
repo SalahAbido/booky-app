@@ -1,5 +1,4 @@
 import 'package:booky_app/constant.dart';
-import 'package:booky_app/core/utils/assets_info.dart';
 import 'package:booky_app/feature/howe/data/models/Book.dart';
 import 'package:booky_app/feature/howe/presentation/veiws/widgets/build%20_review_bar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -15,7 +14,7 @@ class VerticalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(right: 15.0,top: 15.0,bottom: 15.0),
+      padding: const EdgeInsets.only(right: 15.0, top: 15.0, bottom: 15.0),
       child: Row(
         children: [
           ClipRRect(
@@ -37,9 +36,9 @@ class VerticalCard extends StatelessWidget {
                   const Icon(Icons.error_outline_rounded)
                 ],
               ),
-              placeholder: (context, url) => const Center(
-                child: CircularProgressIndicator(color: Colors.grey),
-              ),
+              // placeholder: (context, url) => const Center(
+              //   child: CircularProgressIndicator(color: Colors.grey),
+              // ),
             ),
           ),
           SizedBox(
@@ -59,6 +58,7 @@ class VerticalCard extends StatelessWidget {
                   textAlign: TextAlign.start,
                   style: bodyLargeTitle,
                 ),
+                const SizedBox(height: 10.0,),
                 Text(
                   book.volumeInfo!.authors![0],
                   maxLines: 1,
@@ -66,6 +66,7 @@ class VerticalCard extends StatelessWidget {
                   textAlign: TextAlign.start,
                   style: bodyMediumTitle,
                 ),
+                const SizedBox(height: 20.0,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -79,9 +80,9 @@ class VerticalCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    ReviewBar(
-                      count: book.volumeInfo?.maturityRating!.length ?? 2,
-                      rating: book.volumeInfo!.categories!.length ?? 200,
+                    const ReviewBar(
+                      count: 2, //book.volumeInfo?.maturityRating!.length
+                      rating: 200, //book.volumeInfo!.categories?.length ??
                     )
                   ],
                 )

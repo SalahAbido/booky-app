@@ -47,26 +47,12 @@ class MyApp extends StatelessWidget {
           HomeScreen.routeName: (context) => const HomeScreen(),
           BookDetailScreen.routeName: (context) => BlocProvider(
                 create: (BuildContext context) =>
-                    LikeCubit(getIt.get<HomeRepoImpl>())..fetchLikedBooks(),
-                child:  BookDetailScreen(),
+                    LikeCubit(getIt.get<HomeRepoImpl>()),
+                child: const BookDetailScreen(),
               ),
           SearchScreen.routeName: (context) => const SearchScreen(),
         },
       ),
     );
-    /*MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: kPrimaryColor,
-          textTheme:
-              GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const SplashView(),
-        HomeScreen.routeName: (context) => const HomeScreen(),
-        BookDetailScreen.routeName: (context) => const BookDetailScreen(),
-        SearchScreen.routeName: (context) => const SearchScreen(),
-      },
-    )*/
   }
 }

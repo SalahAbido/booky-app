@@ -7,5 +7,7 @@ abstract class HomeRepo {
 
   Future<Either<Failure, List<Book>>> fetchFeaturedBooks();
 
-  Future<Either<Failure, List<Book>>> fetchLikedBooks();
+  Future<Either<Failure, List<Book>>> fetchLikedBooks({
+    required dynamic category,
+  });
 }

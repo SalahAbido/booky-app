@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/custom _error_widget.dart';
 import '../../../../../core/widgets/loading_widget.dart';
+import '../book_detail_screen.dart';
 import 'build_vertical_card.dart';
 
 class VerticalList extends StatelessWidget {
@@ -20,10 +21,12 @@ class VerticalList extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
-              // Map<String ,String> data ={
-              //   'image':state.books[index].volumeInfo!.imageLinks!.thumbnail!,
-              // };
-              return VerticalCard(book: state.books[index]);
+              return InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, BookDetailScreen.routeName,
+                        arguments: state.books[index]);
+                  },
+                  child: VerticalCard(book: state.books[index]));
             },
             itemCount: state.books.length,
           );

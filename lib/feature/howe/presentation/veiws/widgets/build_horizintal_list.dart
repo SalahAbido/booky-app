@@ -1,6 +1,5 @@
 import 'package:booky_app/core/widgets/custom%20_error_widget.dart';
 import 'package:booky_app/core/widgets/loading_widget.dart';
-import 'package:booky_app/feature/howe/data/models/Book.dart';
 import 'package:booky_app/feature/howe/presentation/veiws/widgets/build_horizontal_card.dart';
 import 'package:booky_app/feature/howe/presentation/view_model/horizontal_list_cubit/horizontal_cubit.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +26,8 @@ class HorizontalList extends StatelessWidget {
                 child: InkWell(
                     borderRadius: BorderRadius.circular(16.0),
                     onTap: () {
-                      Navigator.pushNamed(context, BookDetailScreen.routeName,arguments: state.books[index]);
+                      Navigator.pushNamed(context, BookDetailScreen.routeName,
+                          arguments: state.books[index]);
                     },
                     child: HorizontalCard(
                       imageUrl:

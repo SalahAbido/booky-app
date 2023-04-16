@@ -8,11 +8,13 @@ class ExpandedButton extends StatelessWidget {
     required this.color,
     required this.backgroundColor,
     required this.borderRadius,
+    this.onPress,
   }) : super(key: key);
   final String text;
   final BorderRadius borderRadius;
   final Color color;
   final Color backgroundColor;
+  final void Function()? onPress;
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +25,11 @@ class ExpandedButton extends StatelessWidget {
             RoundedRectangleBorder(borderRadius: borderRadius)),
         backgroundColor: MaterialStatePropertyAll(backgroundColor),
       ),
+      onPressed: onPress,
       child: Text(
         text,
         style: bodyLargeTitle.copyWith(color: color),
       ),
-      onPressed: () {},
     ));
   }
 }

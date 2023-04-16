@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../constant.dart';
+import '../book_detail_screen.dart';
 import 'build_horizontal_card.dart';
 
 class SimilarList extends StatelessWidget {
@@ -21,20 +22,23 @@ class SimilarList extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               padding: EdgeInsets.zero,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) =>
-                  InkWell(
-                    borderRadius: BorderRadius.circular(25.0),
-                    onTap: () {},
-                    child:  HorizontalCard(imageUrl: state.books[index].volumeInfo?.imageLinks?.thumbnail?? ' '),
-                  ),
-              itemCount: 5,
+              itemBuilder: (context, index) => InkWell(
+                borderRadius: BorderRadius.circular(25.0),
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, BookDetailScreen.routeName,
+                      arguments: state.books[index]);
+                },
+                child: HorizontalCard(
+                    imageUrl:
+                        state.books[index].volumeInfo?.imageLinks?.thumbnail ??
+                            ' '),
+              ),
+              itemCount: state.books.length,
             ),
           );
-        }
-        else if(state is LikeFailure){
-          return  CustomErrorWidget(errorMessage: state.errorMessage);
-        }
-        else{
+        } else if (state is LikeFailure) {
+          return CustomErrorWidget(errorMessage: state.errorMessage);
+        } else {
           return const LoadingWidget();
         }
       },
