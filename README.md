@@ -1,6 +1,7 @@
 # booky_app
 
-
+this is app is showing all books from Free Google Api similar and newest books and  search about books.
+using cubit and MVVM pattern
 
 ![bookly1](https://user-images.githubusercontent.com/96310108/232314628-53f67cb4-9e8f-4ac9-bc12-f2f5492a6007.PNG)
 
